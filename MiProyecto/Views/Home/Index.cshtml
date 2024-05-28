@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+    ViewBag.parrafoRandom = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nunc nec.";
+}
+
+
+<main>
+    <h1>@ViewBag.Title</h1>
+    <p>@ViewBag.parrafoRandom</p>
+
+    <!-- Componente reutilizable -->
+
+    @helper RenderName(string name)
+    {
+        <p><strong style="color: blue">Nombre: </strong>@name</p>
+    }
+
+    <!-- Uso del componente reutilizable -->
+    @RenderName("Jaen Figueroa")
+    @RenderName("Ahinara Victorazzi")
+
+
+    <!-- Uso de un bucle for para mostrar datos dinamicamente -->
+    @{
+        var people = new[] { new { Name = "John" }, new { Name = "Jane" } };
+    }
+
+    @for (var i = 0; i < people.Length; i++)
+    {
+        var person = people[i];
+        <p>Nombres: @person.Name</p>
+    }
+
+    <!-- Uso de un bucle foreach para mostrar datos dinamicamente -->
+
+    @foreach (var person in people)
+    {
+      <p>Nombres: @person.Name</p>
+    }
+
+</main>

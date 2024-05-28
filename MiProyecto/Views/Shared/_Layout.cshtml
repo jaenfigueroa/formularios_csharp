@@ -1,0 +1,58 @@
+﻿@{
+    string mensajito = "Hola desde el layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body style="min-height: 100vh; display: flex; flex-direction: column">
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink("Foxed", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Body -->
+
+    <div class="container my-4" style="border: 1px solid red; flex-grow: 1;">
+        @RenderBody()
+    </div>
+
+    <!-- Footer -->
+
+    <footer class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark text-white">
+        <div class="container flex-column">
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET </p>
+            <p>La semana pasada como ahora fué: <strong> @(DateTime.Now - TimeSpan.FromDays(7)) </strong></p>
+            <p>@mensajito</p>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false) <!--Esta es una sección que se rellenará en las vistas que utilicen este diseño-->
+</body>
+</html>
