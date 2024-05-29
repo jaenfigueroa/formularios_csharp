@@ -13,14 +13,14 @@
         <h5 class="text-primary">Valores ingresados</h5>
 
         <!-- Campo DNI-->
-        <!--
-        <div class="form-floating">
-            @Html.TextBoxFor(model => model.Dni, htmlAttributes: new { @class = "form-control mb-2", placeholder = "" })
-            @Html.Label("Dni", htmlAttributes: new { @class = "control-label col-md-2" })
-        </div>
-        -->
 
         <div class="form-floating mb-3">
+
+            <!--
+            @Html.TextBoxFor(model => model.Dni, htmlAttributes: new { @class = "form-control mb-2", placeholder = "" })
+            @Html.Label("Dni", htmlAttributes: new { @class = "control-label col-md-2" })
+            -->
+
             <input type="text" id="Dni" name="Dni" value="@Model.Dni" class="form-control" placeholder=" " />
             <label for="Dni" class="form-label">Dni</label>
         </div>
@@ -71,14 +71,14 @@
         <h5 class="text-primary">Valores calculados</h5>
 
         <!-- Bonificacion() -->
-        <!--
-        <div class="form-floating">
-            @Html.TextBox("Bonificacion", ViewBag.Bonificacion as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
-            @Html.Label("Bonificacion", htmlAttributes: new { @class = "control-label col-md-2" })
-        </div>
-         -->
 
         <div class="form-floating mb-3">
+
+            <!--
+            @Html.TextBox("Bonificacion", ViewBag.Bonificacion as string, htmlAttributes: new { @class = "form-control", placeholder = "" })
+            @Html.Label("Bonificacion", htmlAttributes: new { @class = "control-label col-md-2" })
+            -->
+
             <input type="text" name="Bonificacion" value="@ViewBag.Bonificacion" class="form-control" placeholder="" />
             <label for="Bonificacion" class="form-label">Bonificacion</label>
         </div>
@@ -108,6 +108,9 @@
 
         <div class="form-group mt-4">
             <input type="submit" value="Procesar" class="btn btn-success" />
+
+            <!-- @Html.ActionLink("Nuevo", "ActionHaberes", null, new { @class = "btn btn-success" })-->
+
             <a href="@Url.Action("ActionHaberes")" class="btn btn-primary">Nuevo</a>
         </div>
 
