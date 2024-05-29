@@ -1,0 +1,90 @@
+﻿@model MiProyecto.Models.Haberes
+
+@{
+    ViewBag.Title = "ActionHaberes";
+}
+
+<h2>ActionHaberes</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+
+        <h5 class="text-primary">Valores ingresados</h5>
+
+        <!-- Campo DNI-->
+
+        <div class="form-floating">
+            @Html.TextBoxFor(model => model.Dni, htmlAttributes: new { @class = "form-control col-md-5 mb-2", placeholder = "" })
+            @Html.Label("DNI", htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+
+        <!-- Campo Nombre -->
+
+        <div class="form-floating">
+            @Html.TextBoxFor(model => model.Nombre, htmlAttributes: new { @class = "form-control col-md-5 mb-2", placeholder = "" })
+            @Html.Label("Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+
+        <!-- Campo Categoria -->
+
+        <div class="form-floating">
+            @Html.TextBoxFor(model => model.Categoria, htmlAttributes: new { @class = "form-control col-md-5 mb-2", placeholder = "" })
+            @Html.Label("Categoria", htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+
+        <!-- Campo SueldoBasico -->
+
+        <div class="form-floating">
+            @Html.TextBoxFor(model => model.SueldoBasico, htmlAttributes: new { @class = "form-control col-md-5 mb-2", placeholder = "" })
+            @Html.Label("Sueldo Basico", htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+
+        <!-- Campo TipoAportacion -->
+
+        <div class="form-group mt-2">
+
+            @Html.Label("Tipo Aporte", htmlAttributes: new { @class = "control-label col-md-1 mb-2" })<br/>
+
+            @Html.RadioButtonFor(model => model.TipoAportacion, "AFP") AFP
+            @Html.RadioButtonFor(model => model.TipoAportacion, "ONP") ONP
+        </div>
+
+        <hr />
+
+        <h5 class="text-primary">Valores calculados</h5>
+
+        <!-- Bonificacion() -->
+        <div class="form-floating">
+            @Html.TextBox("Bonificacion", ViewBag.Bonificacion as string, htmlAttributes: new { @class = "form-control col-md-5 mb-2", placeholder = "" })
+            @Html.Label("Bonificacion", htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+
+        <!-- Remuneracion() -->
+        <div class="form-floating">
+            @Html.TextBox("Remuneracion", ViewBag.Remuneracion as string, htmlAttributes: new { @class = "form-control col-md-5 mb-2", placeholder = "" })
+            @Html.Label("Remuneracion", htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+
+        <!-- Aportacion() -->
+        <div class="form-floating">
+            @Html.TextBox("Aportacion", ViewBag.Aportacion as string, htmlAttributes: new { @class = "form-control col-md-5 mb-2", placeholder = "" })
+            @Html.Label("Aportacion", htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+
+        <!-- Neto() -->
+        <div class="form-floating">
+            @Html.TextBox("Neto", ViewBag.Neto as string, htmlAttributes: new { @class = "form-control col-md-5 mb-2", placeholder = "" })
+            @Html.Label("Neto", htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+
+        <!-- BOTONES -->
+
+        <div class="form-group mt-4">
+           <input type="submit" value="Procesar" class="btn btn-primary" />
+
+            @Html.ActionLink("Nuevo", "ActionHaberes", null, new { @class = "btn btn-success" })
+        </div>
+
+    </div>
+}

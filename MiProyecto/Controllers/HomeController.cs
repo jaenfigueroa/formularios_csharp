@@ -16,14 +16,12 @@ namespace MiProyecto.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Esta es una descripción para tu aplicación";
-
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Este es un mensaje para el contacto jeje";
-
             return View();
         }
     }
